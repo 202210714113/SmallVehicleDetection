@@ -1,0 +1,20 @@
+metric: COCO
+num_classes: 2
+
+TrainDataset:
+  !COCODataSet
+    image_dir: voc_train_images_500_025
+    anno_path: voc_train_500_025.json
+    dataset_dir: dataset/Vehicle_sliced
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  !COCODataSet
+    image_dir: voc_val_images_500_025
+    anno_path: voc_val_500_025.json
+    dataset_dir: dataset/Vehicle_sliced
+
+TestDataset:
+  !ImageFolder
+    anno_path: voc_val_500_025.json
+    dataset_dir: dataset/Vehicle_sliced
